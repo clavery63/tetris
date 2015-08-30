@@ -12,8 +12,8 @@
 Grid::Grid(sf::Vector2u windowSize)
 {
     blockSize = windowSize.y / 22;
-    gridHeight = blockSize * 20;
-    gridWidth = blockSize * 10;
+    gridHeight = blockSize * 20 - 2;
+    gridWidth = blockSize * 10 - 2;
     gridTop = blockSize;
     gridLeft = blockSize;
     
@@ -154,12 +154,17 @@ bool Grid::anyCollision()
 
 void Grid::addShapeToGrid()
 {
+    std::unordered_set<int> yVals = {};
     std::vector<sf::Vector2i> currentShapeBlockPositions = currentShape.getBlockPositions();
     for (int i = 0; i < currentShapeBlockPositions.size(); i++)
     {
         setBlock(currentShapeBlockPositions[i], currentShape.getColor(), gridBlocks);
         filledSpaces.push_back(currentShapeBlockPositions[i]);
-        checkLine(currentShapeBlockPositions[i].y);
+        yVals.insert(currentShapeBlockPositions[i].y);
+    }
+    for (int yVal : yVals)
+    {
+        checkLine(yVal);
     }
 }
 
@@ -177,8 +182,38 @@ void Grid::checkLine(int yVal)
 
 void Grid::nukeRow(int yVal)
 {
-    std::cout << "nuking row " << yVal << std::endl;
+    for (int i = 0; i < filledSpaces.size(); i++)
+    {
+        if (filledSpaces[i].y == yVal)
+        {
+            filledSpaces.erase(filledSpaces.begin() + i);
+            i--; // Retry that index after resizing the vector
+        }
+    }
+    
+    int heightToErase = gridTop + yVal * blockSize;
+    for (int i = 0; i < gridBlocks.size(); i++)
+    {
+        if (gridBlocks[i].getPosition().y == heightToErase)
+        {
+            gridBlocks.erase(gridBlocks.begin() + i);
+            i--;
+        }
+    }
+    
+    for (int i = 0; i < filledSpaces.size(); i++)
+    {
+        if (filledSpaces[i].y < yVal)
+            filledSpaces[i].y++;
+    }
+    
+    for (int i = 0; i < gridBlocks.size(); i++)
+    {
+        if (gridBlocks[i].getPosition().y < heightToErase)
+            gridBlocks[i].setPosition(gridBlocks[i].getPosition().x, gridBlocks[i].getPosition().y + blockSize);
+    }
 }
+
 
 
 

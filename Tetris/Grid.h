@@ -10,6 +10,7 @@
 #define __Tetris__Grid__
 
 #include <vector>
+#include <unordered_set>
 #include <SFML/Graphics.hpp>
 #include "Shape.h"
 
