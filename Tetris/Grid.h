@@ -10,7 +10,7 @@
 #define __Tetris__Grid__
 
 #include <vector>
-#include <unordered_set>
+#include <set>
 #include <SFML/Graphics.hpp>
 #include "Shape.h"
 
@@ -21,6 +21,8 @@ public:
     
     sf::RectangleShape getOutline() { return outline; }
     int getBlockSize() { return blockSize; }
+    int getLinesScored() { return linesScored; }
+    void addLinesScored(int i) { linesScored += i; }
     std::vector<sf::RectangleShape> getGridBlocks() { return gridBlocks; }
     std::vector<sf::RectangleShape> getCurrentShapeBlocks() { return currentShapeBlocks; }
         
@@ -29,7 +31,6 @@ public:
     void setCurrentShapeBlocks();
     void addShapeToGrid();
     void clearCurrentShapeBlocks();
-    void checkLine(int yVal);
     void nukeRow(int yVal);
     
     void tryMovingDown();
@@ -38,6 +39,7 @@ public:
     void tryRotatingClockwise();
     void tryRotatingCounterClockwise();
     
+    bool checkLine(int yVal);
     bool blockCollision();
     bool collisionLeft();
     bool collisionRight();
@@ -51,6 +53,8 @@ private:
     int gridWidth;
     int gridLeft;
     int gridTop;
+    
+    int linesScored;
     
     std::vector<sf::Vector2i> filledSpaces;
     std::vector<sf::RectangleShape> gridBlocks;

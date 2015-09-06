@@ -16,6 +16,7 @@
 		8D84507F1B8C1ECF00B940C1 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D84507D1B8C1ECF00B940C1 /* Game.cpp */; };
 		8D8450821B8C275800B940C1 /* Grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D8450801B8C275800B940C1 /* Grid.cpp */; };
 		8D94E4871B8E8A4B00E36CB9 /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D94E4851B8E8A4B00E36CB9 /* Shape.cpp */; };
+		8DA1B2531B9A5485003B0757 /* albert.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 8DA1B2521B9A5485003B0757 /* albert.ogg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		8D8450811B8C275800B940C1 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
 		8D94E4851B8E8A4B00E36CB9 /* Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
 		8D94E4861B8E8A4B00E36CB9 /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
+		8DA1B24F1B9A530D003B0757 /* slow_hands.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = slow_hands.ogg; sourceTree = "<group>"; };
+		8DA1B2521B9A5485003B0757 /* albert.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = albert.ogg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 		8D84506F1B8C1DC900B940C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8DA1B2521B9A5485003B0757 /* albert.ogg */,
+				8DA1B24F1B9A530D003B0757 /* slow_hands.ogg */,
 				8D8450701B8C1DC900B940C1 /* cute_image.jpg */,
 				8D8450721B8C1DC900B940C1 /* nice_music.ogg */,
 				8D8450741B8C1DC900B940C1 /* sansation.ttf */,
@@ -157,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA1B2531B9A5485003B0757 /* albert.ogg in Resources */,
 				8D8450771B8C1DC900B940C1 /* icon.png in Resources */,
 				8D8450751B8C1DC900B940C1 /* sansation.ttf in Resources */,
 				8D8450731B8C1DC900B940C1 /* nice_music.ogg in Resources */,

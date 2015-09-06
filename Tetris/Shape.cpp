@@ -13,9 +13,9 @@ Shape::Shape()
     transformIndex = 0;
     mainBlock = sf::Vector2i(5,1);
     
-    int randomBelowSix = rand() % 6;
+    int randomBelowSeven = rand() % 7;
     
-    switch (randomBelowSix)
+    switch (randomBelowSeven)
     {
         case 0:
             createI();
@@ -31,8 +31,12 @@ Shape::Shape()
             break;
         case 4:
             createZ();
+            break;
         case 5:
             createL();
+            break;
+        case 6:
+            createT();
             break;
     }
     
@@ -103,7 +107,7 @@ void Shape::applyTransform(int tIndex)
 
 void Shape::createL()
 {
-    color = sf::Color::Blue;
+    color = sf::Color(255, 0, 0, 255);
     transformSets.push_back(std::vector<int> { -1, 0, 1, 0, 1, 1 });
     transformSets.push_back(std::vector<int> { 0, 1, 0, -1, -1, 1 });
     transformSets.push_back(std::vector<int> { 1, 0, -1, 0, -1, -1 });
@@ -112,7 +116,7 @@ void Shape::createL()
 
 void Shape::createJ()
 {
-    color = sf::Color::Red;
+    color = sf::Color(0, 255, 0, 255);
     transformSets.push_back(std::vector<int> { -1, 0, 1, 0, -1, 1 });
     transformSets.push_back(std::vector<int> { 0, 1, 0, -1, -1, -1 });
     transformSets.push_back(std::vector<int> { 1, 0, -1, 0, 1, -1 });
@@ -121,7 +125,7 @@ void Shape::createJ()
 
 void Shape::createO()
 {
-    color = sf::Color::Yellow;
+    color = sf::Color(0, 0, 255, 255);
     transformSets.push_back(std::vector<int> { 1, 0, 1, 1, 0, 1 });
     transformSets.push_back(std::vector<int> { 1, 0, 1, 1, 0, 1 });
     transformSets.push_back(std::vector<int> { 1, 0, 1, 1, 0, 1 });
@@ -130,7 +134,7 @@ void Shape::createO()
 
 void Shape::createI()
 {
-    color = sf::Color::Green;
+    color = sf::Color(255, 255, 0, 255);
     transformSets.push_back(std::vector<int> { -1, 0, 1, 0, 2, 0 });
     transformSets.push_back(std::vector<int> { 0, -1, 0, 1, 0, 2 });
     transformSets.push_back(std::vector<int> { -1, 0, 1, 0, 2, 0 });
@@ -139,7 +143,7 @@ void Shape::createI()
 
 void Shape::createS()
 {
-    color = sf::Color::Magenta;
+    color = sf::Color(255, 0, 255, 255);
     transformSets.push_back(std::vector<int> { 0, -1, 1, -1, -1, 0 });
     transformSets.push_back(std::vector<int> { 0, 1, -1, 0, -1, -1 });
     transformSets.push_back(std::vector<int> { 0, -1, 1, -1, -1, 0 });
@@ -148,14 +152,21 @@ void Shape::createS()
 
 void Shape::createZ()
 {
-    color = sf::Color::Black;
+    color = sf::Color(0, 255, 255, 255);
     transformSets.push_back(std::vector<int> { 0, -1, -1, -1, 1, 0 });
     transformSets.push_back(std::vector<int> { 0, 1, 1, 0, 1, -1 });
     transformSets.push_back(std::vector<int> { 0, -1, -1, -1, 1, 0 });
     transformSets.push_back(std::vector<int> { 0, 1, 1, 0, 1, -1 });
 }
 
-
+void Shape::createT()
+{
+    color = sf::Color(150, 150, 150, 255);
+    transformSets.push_back(std::vector<int> { -1, 0, 0, 1, 1, 0 });
+    transformSets.push_back(std::vector<int> { 0, -1, -1, 0, 0, 1 });
+    transformSets.push_back(std::vector<int> { 1, 0, 0, -1, -1, 0 });
+    transformSets.push_back(std::vector<int> { 0, 1, 1, 0, 0, -1 });
+}
 
 
 

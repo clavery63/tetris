@@ -34,6 +34,7 @@ public:
     void createO();
     void createS();
     void createZ();
+    void createT();
     
 private:
     sf::Vector2i mainBlock;

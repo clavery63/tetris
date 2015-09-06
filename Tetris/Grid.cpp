@@ -22,6 +22,8 @@ Grid::Grid(sf::Vector2u windowSize)
     outline.setFillColor(sf::Color::White);
     outline.setOutlineThickness(2);
     outline.setPosition(gridLeft, gridTop);
+    
+    linesScored = 0;
 }
 
 void Grid::setBlock(sf::Vector2i position, sf::Color color, std::vector<sf::RectangleShape> &target)
@@ -154,7 +156,7 @@ bool Grid::anyCollision()
 
 void Grid::addShapeToGrid()
 {
-    std::unordered_set<int> yVals = {};
+    std::set<int> yVals;
     std::vector<sf::Vector2i> currentShapeBlockPositions = currentShape.getBlockPositions();
     for (int i = 0; i < currentShapeBlockPositions.size(); i++)
     {
@@ -162,13 +164,16 @@ void Grid::addShapeToGrid()
         filledSpaces.push_back(currentShapeBlockPositions[i]);
         yVals.insert(currentShapeBlockPositions[i].y);
     }
+    int numLines = 0;
     for (int yVal : yVals)
     {
-        checkLine(yVal);
+        if (checkLine(yVal))
+            numLines++;
     }
+    addLinesScored(numLines);
 }
 
-void Grid::checkLine(int yVal)
+bool Grid::checkLine(int yVal)
 {
     int hits = 0;
     for (int i = 0; i < filledSpaces.size(); i++)
@@ -177,7 +182,11 @@ void Grid::checkLine(int yVal)
             hits++;
     }
     if (hits == 10)
+    {
         nukeRow(yVal);
+        return true;
+    }
+    return false;
 }
 
 void Grid::nukeRow(int yVal)
