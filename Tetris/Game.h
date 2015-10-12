@@ -45,6 +45,8 @@ private:
     bool pressedDown;
     bool isPaused = false;
     
+    sf::Texture theBoys;
+    sf::Sprite theMusicians;
     sf::RenderWindow mWindow;
     sf::Font font;
     sf::Text linesScoredText;

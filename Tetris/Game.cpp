@@ -15,7 +15,7 @@ const int Game::windowWidth = 800;
 const int Game::characterSize = Game::windowHeight / 16;
 
 Game::Game()
-: mWindow(sf::VideoMode(windowWidth, windowHeight), "Tetris", sf::Style::Close)
+: mWindow(sf::VideoMode(windowWidth, windowHeight), "Silkworm's Tetris", sf::Style::Close)
 , grid(mWindow.getSize())
 , silkworm()
 {
@@ -25,11 +25,14 @@ Game::Game()
     prepareText(scoreText, 20 + 1.1 * Game::characterSize);
     prepareText(levelText, 20 + 2 * 1.1 * Game::characterSize);
     
-    if (!silkworm.openFromFile(resourcePath() + "albert.ogg"))
+    theBoys.loadFromFile("/Users/clavery/Desktop/chown_laudie/jounce_with-my_friends.png");
+    theMusicians.setTexture(theBoys);
+    theMusicians.setPosition(450.f, 500.f);
+    
+    if (!silkworm.openFromFile(resourcePath() + "slow_hands.ogg"))
     {
         std::cout << "THE FUCKIN' MUSIC ISN'T PLAYING!";
     }
-    silkworm.setPitch(2);
     silkworm.setLoop(true);
     silkworm.play();
 }
@@ -79,11 +82,19 @@ void Game::update()
     grid.clearCurrentShapeBlocks();
     grid.setCurrentShapeBlocks();
     
+    int oldLevel = level;
     int oldLinesScored = linesScored;
     linesScored = grid.getLinesScored();
     int combo = linesScored - oldLinesScored;
     if (combo) { incrementScore(combo); }
-    level = linesScored / 10;
+    level = linesScored / 2;
+    
+    if (oldLevel != level)
+    {
+        silkworm.stop();
+        silkworm.setPitch(1 - (float)level / 10);
+        silkworm.play();
+    }
     
     linesScoredText.setString("Lines: " + std::to_string(linesScored));
     scoreText.setString("Score: " + std::to_string(score));
@@ -94,6 +105,7 @@ void Game::update()
         grid.tryMovingDown();
         pressedDown = false;
         framesSinceBlocksMoved = 0;
+        if (grid.didILose()) { mWindow.close(); }
     }
 }
 
@@ -116,6 +128,7 @@ void Game::render()
     mWindow.draw(linesScoredText);
     mWindow.draw(scoreText);
     mWindow.draw(levelText);
+    mWindow.draw(theMusicians);
     
     mWindow.display();
 }

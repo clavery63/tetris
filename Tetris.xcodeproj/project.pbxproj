@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D1F71FB1BA51AFE006B2749 /* slow_hands.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = slow_hands.ogg; sourceTree = "<group>"; };
 		8D8450651B8C1DC900B940C1 /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8450691B8C1DC900B940C1 /* Tetris-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tetris-Info.plist"; sourceTree = "<group>"; };
 		8D84506A1B8C1DC900B940C1 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		8D8450811B8C275800B940C1 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
 		8D94E4851B8E8A4B00E36CB9 /* Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
 		8D94E4861B8E8A4B00E36CB9 /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
-		8DA1B24F1B9A530D003B0757 /* slow_hands.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = slow_hands.ogg; sourceTree = "<group>"; };
 		8DA1B2521B9A5485003B0757 /* albert.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = albert.ogg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,8 +95,8 @@
 		8D84506F1B8C1DC900B940C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8D1F71FB1BA51AFE006B2749 /* slow_hands.ogg */,
 				8DA1B2521B9A5485003B0757 /* albert.ogg */,
-				8DA1B24F1B9A530D003B0757 /* slow_hands.ogg */,
 				8D8450701B8C1DC900B940C1 /* cute_image.jpg */,
 				8D8450721B8C1DC900B940C1 /* nice_music.ogg */,
 				8D8450741B8C1DC900B940C1 /* sansation.ttf */,

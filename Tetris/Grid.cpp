@@ -11,6 +11,7 @@
 
 Grid::Grid(sf::Vector2u windowSize)
 {
+    ILost = false;
     blockSize = windowSize.y / 22;
     gridHeight = blockSize * 20 - 2;
     gridWidth = blockSize * 10 - 2;
@@ -63,6 +64,10 @@ void Grid::tryMovingDown()
         currentShape.moveUp();
         addShapeToGrid();
         currentShape = Shape();
+        if (blockCollision())
+        {
+            ILost = true;
+        }
     }
 }
 

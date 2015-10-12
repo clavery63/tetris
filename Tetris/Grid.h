@@ -45,6 +45,8 @@ public:
     bool collisionRight();
     bool collisionDown();
     bool anyCollision();
+    
+    bool didILose() { return ILost; }
 
 private:
     sf::RectangleShape outline;
@@ -55,6 +57,8 @@ private:
     int gridTop;
     
     int linesScored;
+    
+    bool ILost;
     
     std::vector<sf::Vector2i> filledSpaces;
     std::vector<sf::RectangleShape> gridBlocks;
